@@ -1,5 +1,6 @@
 const noble = require('noble')
 const { EventEmitter } = require('events')
+const parseTag = require('./ruuvitag-parser')
 
 class TagListener extends EventEmitter {
   constructor () {
@@ -23,8 +24,9 @@ class TagListener extends EventEmitter {
       const { manufacturerData } = device.advertisement
       // check if it's a ruuvitag
       if (manufacturerData[0] === 0x99 && manufacturerData[1] === 0x04) {
-        const {id} = device
-        this.emit('ruuvitag', { id })
+        const { id } = device
+        const tagData = parseTag(manufacturerData)
+        this.emit('ruuvitag', { id, tagData })
       }
     }
   }
