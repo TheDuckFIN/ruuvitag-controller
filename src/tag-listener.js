@@ -22,11 +22,11 @@ class TagListener extends EventEmitter {
   onDeviceDiscover (device) {
     if (device.advertisement && device.advertisement.manufacturerData) {
       const { manufacturerData } = device.advertisement
-      // check if it's a ruuvitag
+      // ruuvitag's manufacturerData begins with 0x9904
       if (manufacturerData[0] === 0x99 && manufacturerData[1] === 0x04) {
-        const { id } = device
+        const { uuid, rssi } = device
         const tagData = parseTag(manufacturerData)
-        this.emit('ruuvitag', { id, tagData })
+        this.emit('ruuvitag', { id: uuid, rssi, ...tagData })
       }
     }
   }

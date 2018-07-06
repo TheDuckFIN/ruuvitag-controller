@@ -1,5 +1,5 @@
 /*
- * Supports parsin of ruuvitag data format 5 (RAW mode)
+ * Supports parsing of ruuvitag data formats 3 and 5 (RAW mode)
  */
 
 const unSign8Bit = (signed) => {
