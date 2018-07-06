@@ -1,0 +1,8 @@
+{
+  "name": "ruuvitag-controller",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:TheDuckFIN/ruuvitag-controller.git",
+  "author": "Valtteri Lakaniemi <valtteri.lakaniemi@gmail.com>",
+  "license": "MIT"
+}
