@@ -5,7 +5,7 @@ class TagListener extends EventEmitter {
   constructor () {
     super()
     noble.on('stateChange', this.onBluetoothStateChange)
-    noble.on('discover', this.onDeviceDiscover)
+    noble.on('discover', this.onDeviceDiscover.bind(this))
   }
 
   onBluetoothStateChange (state) {
@@ -24,7 +24,7 @@ class TagListener extends EventEmitter {
       // check if it's a ruuvitag
       if (manufacturerData[0] === 0x99 && manufacturerData[1] === 0x04) {
         const {id} = device
-        this.emit('ruuvitag', {id})
+        this.emit('ruuvitag', { id })
       }
     }
   }
