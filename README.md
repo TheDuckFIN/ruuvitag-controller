@@ -2,7 +2,8 @@
 
 ## Requirements
 
-* NodeJS (this was developed on version `10.6.0`)
+* NodeJS
+  * Tested to work on the version specified in `.nvmrc`, use `nvm install` to automatically install that version if using nvm.
 * Yarn
 * Bluetooth support
   * [Noble](https://github.com/noble/noble) is the Bluetooth library used here, check it's repository for more information about requirements
