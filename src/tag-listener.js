@@ -32,4 +32,4 @@ class TagListener extends EventEmitter {
   }
 }
 
-module.exports = TagListener
+module.exports = new TagListener()
