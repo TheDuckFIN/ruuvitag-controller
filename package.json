@@ -11,6 +11,8 @@
     "initdb": "curl \"http://localhost:8086/query\" --data-urlencode \"q=CREATE DATABASE ruuvi\""
   },
   "dependencies": {
+    "dotenv": "^6.0.0",
+    "influx": "^5.0.7",
     "noble": "^1.9.1"
   },
   "devDependencies": {
