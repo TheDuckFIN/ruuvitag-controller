@@ -12,27 +12,11 @@ const db = new Influx.InfluxDB({
   database: INFLUXDB_DATABASE,
   schema: [
     {
-      measurement: 'temperature',
+      measurement: 'ruuvitag_measurement',
       fields: {
-        value: Influx.FieldType.FLOAT
-      },
-      tags: [
-        'tag_id'
-      ]
-    },
-    {
-      measurement: 'humidity',
-      fields: {
-        value: Influx.FieldType.FLOAT
-      },
-      tags: [
-        'tag_id'
-      ]
-    },
-    {
-      measurement: 'pressure',
-      fields: {
-        value: Influx.FieldType.FLOAT
+        temperature: Influx.FieldType.FLOAT,
+        humidity: Influx.FieldType.FLOAT,
+        pressure: Influx.FieldType.FLOAT
       },
       tags: [
         'tag_id'
@@ -41,18 +25,15 @@ const db = new Influx.InfluxDB({
   ]
 })
 
-const SAVED_FIELDS = ['temperature', 'humidity', 'pressure']
-
 const writeTagData = (tagData) => {
-  const { id } = tagData
+  const { id, temperature, humidity, pressure } = tagData
 
-  db.writePoints(
-    SAVED_FIELDS.map(field => ({
-      measurement: field,
-      tags: { tag_id: id },
-      fields: { value: tagData[field] }
-    }))
-  )
+  const measurementData = {
+    tags: { tag_id: tagData.id },
+    fields: { temperature, humidity, pressure }
+  }
+
+  db.writeMeasurement('ruuvitag_measurement', [measurementData])
     .then(() => console.log('Successfully wrote measurements from tag ' + id + ' to InfluxDB'))
     .catch(e => console.log('Error writing data to InfluxDB: ' + e))
 }
