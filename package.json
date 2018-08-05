@@ -7,6 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
+    "front-dev": "cd web && yarn run dev",
+    "front-build": "cd web && yarn run build",
     "initdb": "curl \"http://localhost:8086/query\" --data-urlencode \"q=CREATE DATABASE ruuvi\""
   },
   "dependencies": {

@@ -26,8 +26,17 @@ sudo dpkg -i influxdb_<VERSION>_armhf.deb
 
 After install, start InfluxDB and run `yarn run initdb` to initialize database.
 
+## Development
+
+### Backend
+Backend source files are located under `src` folder. In order to start backend, run `yarn start`. There is currently no reloading on changes.
+
+### Frontend
+Frontend files are located under `web` folder. [Parcel](https://parceljs.org/) is used for bundling. For development, run `yarn run front-dev` to start Parcel with hot reloading enabled. Development server will be started at `localhost:1234`.
+
 ## Usage
 
 1. Install all requirements
 2. Add correct environment variables by creating `.env` file and filling in the variables specified in `.env.example`
-3. `yarn start`
+3. Build frontend using `yarn run front-build`
+4. `yarn start`
