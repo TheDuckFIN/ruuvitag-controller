@@ -1,10 +1,15 @@
 import React from 'react'
 import axios from 'axios'
+import ErrorDialog from './ErrorDialog'
+import Tag from './Tag'
 
 export default class App extends React.Component {
   state = {
     tags: {},
-    error: false
+    error: {
+      status: false,
+      info: null
+    }
   }
 
   componentDidMount = () => {
@@ -21,14 +26,22 @@ export default class App extends React.Component {
     return axios.get(url + '/tags')
       .then(result => {
         const { data } = result
-        this.setState({ tags: data, error: false })
+        this.setState({ tags: data, error: { status: false, info: null } })
       })
-      .catch(() => this.setState({ error: true }))
+      .catch(error => this.setState({ error: { status: true, info: error } }))
   }
 
   render() {
+    const { tags, error } = this.state
+
     return (
-      <div className='test'>Test</div>
+      <main>
+        {error.status && <ErrorDialog error={error} />}
+        <header>
+          <h1>Ruuvitag info</h1>
+        </header>
+        {Object.keys(tags).map(tagId => <Tag key={tagId} id={tagId} tagData={tags[tagId]} />)}
+      </main>
     )
   }
 }
