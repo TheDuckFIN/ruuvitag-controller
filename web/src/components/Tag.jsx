@@ -13,16 +13,16 @@ const Tag = ({id, tagData}) => {
       <table>
         <tbody>
           <tr>
-            <td>Temperature</td>
-            <td>{temperature}℃</td>
+            <td className='label'>Temperature</td>
+            <td className='value'>{temperature}℃</td>
           </tr>
           <tr>
-            <td>Humidity</td>
-            <td>{humidity}%</td>
+            <td className='label'>Humidity</td>
+            <td className='value'>{humidity}%</td>
           </tr>
           <tr>
-            <td>Pressure</td>
-            <td>{pressure} hPa</td>
+            <td className='label'>Pressure</td>
+            <td className='value'>{pressure} hPa</td>
           </tr>
         </tbody>
       </table>

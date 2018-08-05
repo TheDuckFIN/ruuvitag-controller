@@ -70,12 +70,21 @@ main {
 
   > table {
     border-collapse: separate;
-    border-spacing: 0px 4px;    
+    border-spacing: 0px 4px;
+    table-layout: fixed;
     width: 100%;
+    max-width: 400px;
 
     > tbody > tr {
-      > td:nth-child(2) {
-        font-weight: 600;
+      > td {
+        &.label {
+          width: 100%;
+        }
+
+        &.value {
+          font-weight: 600;
+          width: 100px;
+        }
       }
     }
   }
