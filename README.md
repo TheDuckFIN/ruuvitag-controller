@@ -34,6 +34,11 @@ Backend source files are located under `src` folder. In order to start backend, 
 ### Frontend
 Frontend files are located under `web` folder. [Parcel](https://parceljs.org/) is used for bundling. For development, run `yarn run front-dev` to start Parcel with hot reloading enabled. Development server will be started at `localhost:1234`.
 
+When developing using the frontend development server, remember also to start backend using `yarn start`. You will also need to add environment variable `API_URL` to the file `web/.env` to point correctly to backend api (it's in different port). With default backend port, add 
+```
+API_URL=http://localhost:5000/api
+```
+
 ## Usage
 
 1. Install all requirements

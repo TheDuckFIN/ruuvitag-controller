@@ -8,7 +8,9 @@
     "url": "https://github.com/TheDuckFIN/ruuvitag-controller"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
+    "fetch": "^1.1.0",
     "parcel-bundler": "^1.9.7",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
@@ -16,5 +18,9 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "less": "^3.8.0"
   }
 }
