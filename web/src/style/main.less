@@ -84,6 +84,35 @@ main {
         &.value {
           font-weight: 600;
           width: 100px;
+          position: relative;
+
+          &.hot {
+            color: red;
+
+            &:after {
+              content: "🔥";
+              position: absolute;
+              top: -4px;
+            }
+          }
+
+          &.kinda-hot {
+            color: orange;
+          }
+
+          &.kinda-cold {
+            color: rgb(0, 110, 255);
+          }
+
+          &.cold {
+            color: rgb(83, 215, 255);
+
+            &:after {
+              content: "❄️";
+              position: absolute;
+              top: -3px;
+            }
+          }
         }
       }
     }

@@ -14,7 +14,7 @@ const Tag = ({id, tagData}) => {
         <tbody>
           <tr>
             <td className='label'>Temperature</td>
-            <td className='value'>{temperature}℃</td>
+            <td className={`value ${temperatureClass(temperature)}`}>{temperature}℃&nbsp;</td>
           </tr>
           <tr>
             <td className='label'>Humidity</td>
@@ -28,6 +28,14 @@ const Tag = ({id, tagData}) => {
       </table>
     </section>
   )
+}
+
+const temperatureClass = temp => {
+  if (temp >= 27.5) return 'hot'
+  if (temp >= 22.5) return 'kinda-hot'
+  if (temp <= 0) return 'cold'
+  if (temp <= 10) return 'kinda-cold'
+  return ''
 }
 
 export default Tag
