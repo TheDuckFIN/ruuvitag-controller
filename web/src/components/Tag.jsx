@@ -2,12 +2,13 @@ import React from 'react'
 import LastUpdatedTimer from './LastUpdatedTImer'
 
 const Tag = ({id, tagData}) => {
-  const { temperature, humidity, pressure, updated } = tagData
+  const { temperature, humidity, pressure, updated, name } = tagData
+  const tagName = name || id.subString(0, 10)
 
   return (
     <section className='tag-container'>
       <h2>
-        Tag {id.substring(0, 10)}
+        {tagName}
         <LastUpdatedTimer updated={updated} key={updated} />
       </h2>
       <table>
