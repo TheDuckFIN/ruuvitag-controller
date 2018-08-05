@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 
 const TagListener = require('./tag-listener')
 const InfluxDBController = require('./influxdb-controller')
@@ -18,12 +19,10 @@ TagListener.on('ruuvitag', (tagData) => {
 
 server.use(cors())
 
-server.get('/', (req, res) => {
-  res.send('Hello world!')
-})
-
 server.get('/api/tags', (req, res) => {
   res.json(TagStore.foundTags)
 })
+
+server.use('/', express.static(path.join(__dirname, '..', 'web', 'dist')))
 
 server.listen(port, () => console.log('Server listening in port ' + port))
