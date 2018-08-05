@@ -3,7 +3,7 @@ import LastUpdatedTimer from './LastUpdatedTImer'
 
 const Tag = ({id, tagData}) => {
   const { temperature, humidity, pressure, updated, name } = tagData
-  const tagName = name || id.subString(0, 10)
+  const tagName = name || id.substring(0, 10)
 
   return (
     <section className='tag-container'>
