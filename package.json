@@ -12,6 +12,7 @@
     "initdb": "curl \"http://localhost:8086/query\" --data-urlencode \"q=CREATE DATABASE ruuvi\""
   },
   "dependencies": {
+    "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "influx": "^5.0.7",

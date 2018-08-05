@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
+const cors = require('cors')
 
 const TagListener = require('./tag-listener')
 const InfluxDBController = require('./influxdb-controller')
@@ -14,6 +15,8 @@ TagListener.on('ruuvitag', (tagData) => {
   InfluxDBController.writeTagData(tagData)
   TagStore.saveTagData(tagData)
 })
+
+server.use(cors())
 
 server.get('/', (req, res) => {
   res.send('Hello world!')
