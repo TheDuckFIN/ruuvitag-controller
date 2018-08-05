@@ -1,6 +1,12 @@
 {
+  "parser": "babel-eslint",
   "extends": [
     "standard",
     "plugin:react/recommended"
-  ]
+  ],
+  "rules": {
+    "space-before-function-paren": 0,
+    "jsx-quotes": ["error", "prefer-single"],
+    "babel/semi": 0
+  }
 }
